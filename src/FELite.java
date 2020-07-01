@@ -13,13 +13,15 @@ public class FELite {
 	FELite() {
 	gamePanel = new GamePanel();
 	}
+	
 	public static void main(String[] args) { 
-		//only main method in entire program
+		//main method
 		FELite game = new FELite();
 		
 		
 		game.setup();
 	}
+	
 	void setup() {
 		frame.add(gamePanel);
 		frame.setSize(WIDTH, HEIGHT);

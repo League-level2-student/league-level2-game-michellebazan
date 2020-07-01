@@ -1,0 +1,19 @@
+Ideas For Game
+
+Instead of characters dying when colliding, have it be like a teleport???
+So MC running into ___ would take MC to a new place/game state
+
+MC == blob?
+
+blob's goal is to get to the treasure
+but has to avoid challenges along the way
+time limit
+
+start state - will need to have instructions/goal on it, arrow keys in play, 
+would be cool if blob is seen at start state and to start the game the blobs moves to touch the word start
+game state - timer starts, game starts, blob could be on a platform, 
+end state - fail/success? text differs on whether goal was completed within time limit
+
+
+another idea - FE Lite - - - - -
+requires - 2d arrays???
