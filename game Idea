@@ -13,7 +13,18 @@ start state - will need to have instructions/goal on it, arrow keys in play,
 would be cool if blob is seen at start state and to start the game the blobs moves to touch the word start
 game state - timer starts, game starts, blob could be on a platform, 
 end state - fail/success? text differs on whether goal was completed within time limit
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+another idea - FE Lite - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+what about zodiac classes? like each one has their own special thing
+water signs - Cancer[Bishop], Scorpio[Warlock] & Pisces[Hero]
+fire signs - Aries[Assassin], Leo[Dark Bishop] & Sagittarius[Warrior]
+earth signs - Taurus[Fortress Knight], Virgo[Paladin] & Capricorn[Wyvern Rider]
+air signs - Gemini[Sniper], Libra[Grappler] & Aquarius[Swordmaster]
+in fe3h, there are 12 advanced classes
+So the game can open up with, "choose your player" and the player chooses
+which zodiac they want to be
 
 
-another idea - FE Lite - - - - -
-requires - 2d arrays???
+requires - 2d arrays??? guess i'll die
+
+invisible stats - easier to say what each person excels at. 

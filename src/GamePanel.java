@@ -19,11 +19,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
     int x = 500;
     int y = 800;
+    
+    
     //think about what kinds of classes - ex, units, fields
     	//class(es) based on main character, weapon/power MC 'throws', enemy
     	//an object manager. class - to update, draw and remove objects
     	//images for background + any characters 
-    //questions for myself to think about while creating the final look of the game_-_-_-_-
+    //questions for myself to think about while creating the final look of the game
     //how many units? Which ones? What kinds of classes?
     //should the game start with given units of random classes? //leaning towards yes
     //how should battles be like? one v one, group v group ?
