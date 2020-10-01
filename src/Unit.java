@@ -37,12 +37,15 @@ public class Unit extends GameObject{
 			//twice the attacks
 			numAttacks = 2;
 		}
-		//hit rate + luck + ???
+		//hit rate + luck
 		for (int i = 0; i < numAttacks; i++) {
 			//
 			int trueHitRate = BASEHITRATE + Lck - unit.Lck;
-			//random
+			//random based on hit rate --> succeeds/fails
 			Random rand = new Random();
+			
+			//if it passes --> atk per numAttacks
+			//if fails --> nothing, turn passed
 			
 		}
 	}
