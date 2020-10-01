@@ -25,6 +25,42 @@ So the game can open up with, "choose your player" and the player chooses
 which zodiac they want to be
 
 
-requires - 2d arrays??? guess i'll die
+requires - 2d arrays???
+(element?) (strength)
 
-invisible stats - easier to say what each person excels at. 
+int HP; 25,24,28
+	int Atk; 9,8,8
+	int Spd; 10,11,10
+	int Def; 5,4,6
+	int Res; 2,3,2
+	int Mag; 3,4,5
+	int Lck; 7,5,6
+	Affinity element (fire) (speed)
+
+int HP; 25,22,27
+	int Atk; 6,4,7
+	int Spd; 8,7,7
+	int Def; 5,3,4
+	int Res; 9,4,8
+	int Mag; 10,11,12
+	int Lck; 5,4,4
+	Affinity element (water) (mag)
+	
+int HP; 29,27,28,
+	int Atk; 10,8,8,
+	int Spd; 8,8,7,
+	int Def; 6,5,6
+	int Res; 3,8,6
+	int Mag; 5,6,7
+	int Lck; 7,6,5
+	Affinity element (earth) (random)
+	
+int HP; 26,25,26
+	int Atk; 9,11,10
+	int Spd; 9,10,9
+	int Def; 7,6,5
+	int Res; 2,8,2
+	int Mag; 5,7,5
+	int Lck; 6,8,5
+	Affinity element (air) (atk)
+
