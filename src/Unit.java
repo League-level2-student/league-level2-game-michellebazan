@@ -43,8 +43,23 @@ public class Unit extends GameObject{
 		
 	}
 	void heal(Unit unit, boolean isMagic) {
-		//HP = 
-		
+		Random randd = new Random();
+		//sets num of heals of luck of unit
+		int numHeals = Lck;
+		//checks if our unit has any heals
+		while (numHeals > 0) {
+			//check if our unit has magic
+			if (isMagic == true) { //100 success rate but num of hp is random
+				//need to fix the equation for healing self if the unit has magic, check is it needs to be unit.HP (etc.)
+				int randnumm = randd.nextInt(HP+1); // figure out if you want to limit the heal option or not // can change it so at least hald of the total hp is return through heal
+				//like if hp is 10 then it will return at least 5.
+				HP = HP + randnumm;
+				numHeals = numHeals - 1;
+				//message pop up
+				JOptionPane.showMessageDialog(null, unit.name + " health has increased by " + randnumm + " putting them at a total of " + HP);
+			}
+			
+		}		
 	}
 	
 	void attack(Unit unit, boolean isMagic) {

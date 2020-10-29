@@ -9,7 +9,7 @@ public class AreaBattle {
 		Unit Runrun = new Unit(28, 4, 7, 3, 7, 9, 9, Affinity.AIR, 20, 21, 20, 20, "Runrun");
 		
 		while(Fred.HP >= 0 && Runrun.HP >= 0) {
-			int attackoption = JOptionPane.showOptionDialog(null, "Choose an attack", "attack", 0, -1, null, new String [] {"ATK", "MAG"}, 0);
+			int attackoption = JOptionPane.showOptionDialog(null, "Choose an attack", "attack", 0, -1, null, new String [] {"ATK", "MAG", "HL"}, 0);
 			//Fred's attack options
 			if ( attackoption == 0) {
 				//atk
@@ -24,7 +24,7 @@ public class AreaBattle {
 			
 			}
 			
-			attackoption = JOptionPane.showOptionDialog(null, "Choose an attack", "attack", 0, -1, null, new String [] {"ATK", "MAG"}, 0);
+			attackoption = JOptionPane.showOptionDialog(null, "Choose an attack", "attack", 0, -1, null, new String [] {"ATK", "MAG", "HL"}, 0);
 			//RR's attack options
 			if (attackoption == 0) {
 				//atk
