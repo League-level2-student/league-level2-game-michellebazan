@@ -23,32 +23,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
     
     //think about what kinds of classes - ex, units, fields
     	//class(es) based on main character, weapon/power MC 'throws', enemy
-    	//an object manager. class - to update, draw and remove objects
-    	//images for background + any characters 
-    //questions for myself to think about while creating the final look of the game
-    //how many units? Which ones? What kinds of classes?
-    //should the game start with given units of random classes? //leaning towards yes
-    //how should battles be like? one v one, group v group ?
-    //duration of game? # of battles
-    	//game state will need to change/update based on battles, should have a transition type thing in between fields (loading screen)
-    //Should there be 'timed'/turn limited battles? //maybe towards the middle/end
-    //an actual plot to the game or just have a goal introduced at the beginning
-    //end state - should change based on fail/success model
-    //should i learn how to do pixel art and make the characters or just borrow
+    	
+
     //what determines a 'win'? should the game reward the character for defeating enemies?
     //music/soundtrack?? should I create/code my own or borrow?
     //sound effects?
-    //research previous older games to see what they look like
-		//map(top view), when someone fights fades into a closer side view and shows the animation
-
-    
-    
-    //already have
-    	//set up different states - start(has text), middle(is just a black screen),
-    	//end state(only a red screen)
-    	//can switch between the 3 states
-    
-    
+   
     Font titleFont;
     Font enterFont;
     Timer frameDraw;

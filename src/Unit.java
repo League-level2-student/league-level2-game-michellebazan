@@ -42,6 +42,7 @@ public class Unit extends GameObject{
 		this.name = Name;
 		
 	}
+	
 	void heal(Unit unit, boolean isMagic) {
 		Random randd = new Random();
 		//sets num of heals of luck of unit
