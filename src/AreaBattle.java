@@ -64,14 +64,7 @@ public  class  AreaBattle  {  //i  think  it  was  supposed  to  be  called  Are
 			Unit1  =  fighters[ballotnum22.nextInt(7)];
 			Unit2  =  fighters[num2222.nextInt(7)];
 			}
-		//players  name  do  this  once  the  bug  is  fixed
-		//String  player1  =  JOptionPane.showInputDialog("What    is    your    name    player1  ?");
-		//String  player2  =  JOptionPane.showInputDialog("What    is    your    name    player2  ?");
-		//money  to  bet  on  +  what  player  chooses  to  bet
-		//int  player1money  =  500;
-		//int  player2money  =  500;
-		//int  p1betting  =  0;
-		//int  p2betting  =  0;
+		//bug starts here *******************************************************************************************************
 			
 		if (round >=1)  {
 			JOptionPane.showMessageDialog(null,  "For  this  round,  there  are  two  fighters;  they  are  called  "  +  Unit1.name  +  "  and  "  +  Unit2.name  +  ".  ");
@@ -148,16 +141,22 @@ public  class  AreaBattle  {  //i  think  it  was  supposed  to  be  called  Are
 			round++;
 		}
 		
+		if (round==10) {
+			System.out.println("...");
+		} else if (round ==20) {
+			System.out.println("Don't you get tired of fighting?");
+		} else if (round == 30) {
+			System.out.println("Have you thought about what outside is like?");
+		} else if(round == 40) {
+			System.out.println("I heard that you are on your 40th round, would be a shame if you did not see your 50th");
+		}else if(round==50) {
+			System.out.println("I warned you");
+			break;
+		}
 		
-		//round  ==  0  bracket
-		}//***************************************************************************************************************************************************************
+		}
 		
-		//idea-gambling  two  player  mode
-		//2  players  -->  asked  to  bet  money  on  their  character  -  if  player  wins  get  other  player  money  -  if  one  player  looses  all  money  -->  break;  after  announcing  the  area  is  closing
-		//due  to  it  getting  sued  by  said  player
-		//need  names  of  player
 		
-		//bug -- after the first round, it loops between announcing units and asking if want to leave arena
 		
 		//
 	}
