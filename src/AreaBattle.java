@@ -4,7 +4,7 @@ import  javax.swing.JOptionPane;
 
 public  class  AreaBattle  {  //i  think  it  was  supposed  to  be  called  ArenaBattle  but  arena  looks  like  a  fake  word  so  the  name  is  not  going  to  change
 	public  static  void  main(String[]  args)  {
-		//after  testing,  program  another  action  (like  healing)  to  unit  support
+		//after  testing,  program  another  action  (like  healing)  to  unit  support                
 		
 		//Unit(int  HP,  int  Atk,  int  Spd,  int  Def,  int  Res,  int  Mag,  int  Lck,  Affinity  element,  int  x,  int  y,  int  width,  int  height)
 		Unit  Fred  =  new  Unit(30,  10,  8,  5,  2,  2,  6,  Affinity.FIRE,  20,  20,  20,  20,  "Fred");  //starting  unit
