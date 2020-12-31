@@ -20,17 +20,14 @@ public  class  AreaBattle  {  //i  think  it  was  supposed  to  be  called  Are
 		int  prologue  =  JOptionPane.showOptionDialog(null,  "Welcome  to  the  battle  area.  What  would  you  like  to  do",  "At  the  doorway",  0,  -1,  null,  new  String  []  {"Read  Instructions",  "Start"},  0);
 		if  (prologue  ==  0){
 			//instructions  here
-			JOptionPane.showMessageDialog(null,  "This  is  a  two  player  game.  Player1  and  Player2  will  have  each  have  their  own  dueler.  ");
-			JOptionPane.showMessageDialog(null,  "Taking  turns,  each  player  will  decide  the  fate  of  two  duelers.  There  will  be  different  attack  options,  depending  on  the  background  of  the  dueler.  ");
+			JOptionPane.showMessageDialog(null,  "There  are  two  duelers,  and  you  will  decide  the  fate  of  them.");
+			JOptionPane.showMessageDialog(null,  "There  will  be  different  attack  options,  depending  on  the  background  of  the  dueler.  ");
 			JOptionPane.showMessageDialog(null,  "Oh  and  background  means  that  each  dueler  has  their  own  elemental  affinity  and  abiltity  (magic  vs  physical  attack).  ");
 			JOptionPane.showMessageDialog(null,  "Anyways  when  a  dueler's  HP  reaches  zero,  the  game  will  end.  You  may  choose  to  play  another  round  or  forever  leave  the  area.  ");
 			
 			prologue=1;
 			
 		}
-		
-		
-		
 		
 		Random  ballotnum  =  new  Random();
 		Random  num22  =  new  Random();
@@ -39,37 +36,54 @@ public  class  AreaBattle  {  //i  think  it  was  supposed  to  be  called  Are
 		Unit  Unit1  =  fighters[ballotnum.nextInt(7)];
 		Unit  Unit2  =  fighters[num22.nextInt(7)];
 		
-
-		
-		JOptionPane.showMessageDialog(null,  "So  to  start  off,  there  are  already  two  chosen  fighters;  they  are  called  "  +  Unit1.name  +  "  and  "  +  Unit2.name  +  ".  ");
-		  
-		
-		
-		
-		//repeats  until  player  wishes  to  leave  arena
-		while  (round  >  -1)  {//*************************************************************************************************************************************************
-			
-			if(round>1) {
-				Random  ballotnum2  =  new  Random();
-				Random  num222  =  new  Random();
-		
-				Unit1  =  fighters[ballotnum2.nextInt(7)];
-				Unit2  =  fighters[num222.nextInt(7)];
-			}
-			while  (Unit1.name  ==  Unit2.name)  {
+		while  (Unit1.name  ==  Unit2.name)  {
 			//makes  sure  that  units  will  not  be  the  same
 			Random  ballotnum22  =  new  Random();
 			Random  num2222  =  new  Random();
 	
 			Unit1  =  fighters[ballotnum22.nextInt(7)];
 			Unit2  =  fighters[num2222.nextInt(7)];
-			}
-		//bug starts here *******************************************************************************************************
+		}
+		
+		JOptionPane.showMessageDialog(null,  "So  to  start  off,  there  are  already  two  chosen  fighters;  they  are  called  "  +  Unit1.name  +  "  and  "  +  Unit2.name  +  ".  ");
+		
+		//repeats  until  player  wishes  to  leave  arena
+		//round  =  0  ,,,  first  loop  it  begins  at  0
+		//bug  starts(?)  here  *******************************************************************************************************
+		//thoughts  on  bug - - - - - - - - - - - - - - - - - - - - - - - -
+				//it  forcefully  breaks  the  game  after  2-3  rounds
+				//very  inconsistent  in  the  expected  outcome  of  clicking  buttons
+					//ex/  going  to  the  next  round  and  repeats  who  is  fighting  multiple  times
+					//ex/  i  play  it  through  one  time  and  it  closes  after  the  first  round.  i  play  it  again  and  
+					//it  lasts  past  the  first  round  (with  the  same  code)
+			//bug  can  become  even  worse,  breaks  after  the  first  round  ///  became  worse  after  I  changed  line  60  to  round  >  0.
+			//the  bug  is  involved  with  integer  round, not with attackoptions or anything else
+		
+		while  (round  >  -1)  {//*************************************************************************************************************************************************
 			
-		if (round >=1)  {
+			if(round>1)  {  //rounds  that  are  not  the  very  first  one  
+				Random  ballotnum2  =  new  Random();
+				Random  num222  =  new  Random();
+		
+				Unit1  =  fighters[ballotnum2.nextInt(7)];
+				Unit2  =  fighters[num222.nextInt(7)];
+				
+				while  (Unit1.name  ==  Unit2.name)  {
+					//makes  sure  that  units  will  not  be  the  same
+					Random  ballotnum22  =  new  Random();
+					Random  num2222  =  new  Random();
+			
+					Unit1  =  fighters[ballotnum22.nextInt(7)];
+					Unit2  =  fighters[num2222.nextInt(7)];
+			}
+			
+			}
+			
+		if  (round  >=1)  {
 			JOptionPane.showMessageDialog(null,  "For  this  round,  there  are  two  fighters;  they  are  called  "  +  Unit1.name  +  "  and  "  +  Unit2.name  +  ".  ");
 		}
 		
+		//below is not involved with bug
 		while(Unit1.HP  >=  0  &&  Unit2.HP  >=  0)  {
 			
 			int  attackoption  =  JOptionPane.showOptionDialog(null,  "Choose  an  attack",  Unit1.name,  0,  -1,  null,  new  String  []  {"ATK",  "MAG"},  0);
@@ -97,12 +111,13 @@ public  class  AreaBattle  {  //i  think  it  was  supposed  to  be  called  Are
 			}
 			if  (Unit2.HP  <=  0)  {
 				JOptionPane.showMessageDialog(null,  Unit1.name  +  "  won.");
+				//round++;
 				break;
 			
 			}
 			
 			attackoption  =  JOptionPane.showOptionDialog(null,  "Choose  an  attack",    Unit2.name,  0,  -1,  null,  new  String  []  {"ATK",  "MAG"},  0);
-			//RR's  attack  options
+			//Unit2's  attack  options
 			if  (attackoption  ==  0)  {
 				//atk
 				Unit2.attack(Unit1,  false);
@@ -110,7 +125,7 @@ public  class  AreaBattle  {  //i  think  it  was  supposed  to  be  called  Are
 				//mag
 				//Unit2.attack(Unit1,  true);
 				
-				if(Unit2.Mag  >  5)  {
+				if  (Unit2.Mag  >  5)  {
 					
 					attackoption  =  JOptionPane.showOptionDialog(null,  "Choose  an  attack",  Unit2.name,  0,  -1,  null,  new  String  []  {"HL",  "MAG"},  0);
 					if  (attackoption  ==  0)  {
@@ -125,8 +140,9 @@ public  class  AreaBattle  {  //i  think  it  was  supposed  to  be  called  Are
 				
 			}
 			
-		if(Unit2.HP  <=  0)  {
+		if  (Unit2.HP  <=  0)  {
 			JOptionPane.showMessageDialog(null,  Unit2.name  +  "  won.");
+			//round++;
 			break;
 		}
 		
@@ -137,27 +153,24 @@ public  class  AreaBattle  {  //i  think  it  was  supposed  to  be  called  Are
 			JOptionPane.showMessageDialog(null,  "You  leave  the  battle  arena  and  took  a  deep  breath.  The  air  tastes  crunchy  like  a  snicker  bar.");
 			JOptionPane.showMessageDialog(null,  "You  look  up  and  see  a  bird  pass  by.  You  realize  you  are  free  from  eternal  hell.");
 			break;
-		} else {
-			round++;
-		}
+		}  
+		round++; //increasing round to at least 1
 		
-		if (round==10) {
+		//below  does  not  affect  bug -- its just extra and i cant even test it since the bug stops me
+		if  (round==10)  {
 			System.out.println("...");
-		} else if (round ==20) {
-			System.out.println("Don't you get tired of fighting?");
-		} else if (round == 30) {
-			System.out.println("Have you thought about what outside is like?");
-		} else if(round == 40) {
-			System.out.println("I heard that you are on your 40th round, would be a shame if you did not see your 50th");
-		}else if(round==50) {
-			System.out.println("I warned you");
+		}  else  if  (round  ==20)  {
+			System.out.println("Don't  you  get  tired  of  fighting?");
+		}  else  if  (round  ==  30)  {
+			System.out.println("Have  you  thought  about  what  outside  is  like?");
+		}  else  if(round  ==  40)  {
+			System.out.println("I  recommend  leaving  soon.");
+		}else  if(round==50)  {
+			System.out.println("I  warned  you");
 			break;
 		}
 		
-		}
+		}//////////*****************************************************************************************************************************************
 		
-		
-		
-		//
 	}
 }
