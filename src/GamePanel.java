@@ -20,15 +20,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
     int x = 500;
     int y = 800;
     
-    
-    //think about what kinds of classes - ex, units, fields
-    	//class(es) based on main character, weapon/power MC 'throws', enemy
-    	
-
-    //what determines a 'win'? should the game reward the character for defeating enemies?
-    //music/soundtrack?? should I create/code my own or borrow?
-    //sound effects?
-   
+ 
     Font titleFont;
     Font enterFont;
     Timer frameDraw;
