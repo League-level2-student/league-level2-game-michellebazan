@@ -103,6 +103,7 @@ public class Unit extends GameObject {
 						Double damagetaken = Mag * getAffinityModifier(unit.element) - unit.Res;
 						if (damagetaken < 0) {
 							damagetaken = 0.0;
+							System.out.println(damagetaken);
 						}
 						unit.HP = (int) (unit.HP - damagetaken);
 						// name is our unit, unit is other
@@ -113,6 +114,7 @@ public class Unit extends GameObject {
 						}
 						unit.HP = (int) (unit.HP - damagetaken);
 					}
+					System.out.println(unit.HP);
 					JOptionPane.showMessageDialog(null, unit.name + "'s health is at " + unit.HP); // here it announces
 																									// the health of the
 																									// unit

@@ -58,29 +58,21 @@ public class AreaBattle { // i think it was supposed to be called ArenaBattle bu
 				"So  to  start  off,  there  are  already  two  chosen  fighters;  they  are  called  " + Unit1.name
 						+ "  and  " + Unit2.name + ".  ");
 
-		// current bugs found by tester C 1/6/2020
-		// repeats itself
-		// ex/clicking the mag button multiple times in order for it to work
-		// ex/scene where fighters are introduced repeats (after the first round)
-		// Can skip scenes
-		// ex/announcing the hp of a unit
-		// after one run, it ended after 4 rounds. then on another run, it ended again.
+		// round =0
 		while (round > -1) {// *************************************************************************************************************************************************
 
-			if (round > 1) { // rounds that are not the very first one
+			if (round > 0) { // rounds that are not the very first one
 
-				Unit1 = fighters[ballotnum.nextInt(fighters.length)];
-				Unit2 = fighters[ballotnum.nextInt(fighters.length)];
-
-				while (Unit1.name == Unit2.name) {
+				while (Unit1.name == Unit2.name || Unit1.HP < 0 || Unit2.HP < 0) {
 
 					Unit1 = fighters[ballotnum.nextInt(fighters.length)];
 					Unit2 = fighters[ballotnum.nextInt(fighters.length)];
+					System.out.println(round);
 				}
 
 			}
 
-			if (round >= 1) {
+			if (round > 0) { /// why would this repeat when running?
 				JOptionPane.showMessageDialog(null, "For  this  round,  there  are  two  fighters;  they  are  called  "
 						+ Unit1.name + "  and  " + Unit2.name + ".  ");
 			}
@@ -114,7 +106,14 @@ public class AreaBattle { // i think it was supposed to be called ArenaBattle bu
 				}
 				if (Unit2.HP <= 0) {
 					JOptionPane.showMessageDialog(null, Unit1.name + "  won.");
-					// round++;
+
+					if (round > 5) {
+						JOptionPane.showMessageDialog(null, Unit1.name + "  won the battle arena.");
+						break;
+					}
+
+					round++;
+					System.out.println(round);
 					break;
 
 				}
@@ -147,13 +146,23 @@ public class AreaBattle { // i think it was supposed to be called ArenaBattle bu
 
 				if (Unit1.HP <= 0) {
 					JOptionPane.showMessageDialog(null, Unit2.name + "  won.");
-					// round++;
+
+					if (round > 5) {
+						JOptionPane.showMessageDialog(null, Unit2.name + "  won the battle arena.");
+						break;
+					}
+					round++;
+					System.out.println(round);
 					break;
+
 				}
 
+			} // fight while loop ends here
+			if (round > 5) {
+
+				break;
 			}
 
-			
 			int escape = JOptionPane.showOptionDialog(null, "Do  you  want  to  continue  in  the  battle  arena?",
 					"arena", 0, 1, null, new String[] { "Yes", "No" }, 0);
 			if (escape == 1) {
@@ -163,20 +172,11 @@ public class AreaBattle { // i think it was supposed to be called ArenaBattle bu
 						"You  look  up  and  see  a  bird  pass  by.  You  realize  you  are  free  from  eternal  hell.");
 				break;
 			}
-			round++; // increasing round to at least 1
-
-			if (round == 10) {
-				System.out.println("...");
-			} else if (round == 20) {
-				System.out.println("Don't  you  get  tired  of  fighting?");
-			} else if (round == 30) {
-				System.out.println("Have  you  thought  about  what  outside  is  like?");
-			} else if (round == 40) {
-				System.out.println("I  recommend  leaving  soon.");
-			} else if (round == 50) {
-				System.out.println("I  warned  you");
-				break;
-			}
+			// round++; // increasing round to at least 1
+			System.out.println(round);
+			//thing to do next time
+			// add a joption when unit misses their attack
+			// it would still get bugged (not switching people out)
 
 		} ////////// *****************************************************************************************************************************************
 
