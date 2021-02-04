@@ -18,6 +18,11 @@ public class AreaBattle { // i think it was supposed to be called ArenaBattle bu
 		Unit Tilly = new Unit(28, 8, 7, 6, 6, 7, 5, Affinity.EARTH, 20, 21, 20, 20, "Tilly");
 		Unit Fraser = new Unit(25, 9, 10, 5, 2, 3, 7, Affinity.FIRE, 20, 21, 20, 20, "Fraser");
 		int round = 0;
+		String l1 = " ";
+		String l2 = " ";
+		String l3 = " ";
+		String l4 = " ";
+		String l5 = " ";
 		// prologue
 		int prologue = JOptionPane.showOptionDialog(null,
 				"Welcome  to  the  battle  area.  What  would  you  like  to  do", "At  the  doorway", 0, -1, null,
@@ -63,13 +68,12 @@ public class AreaBattle { // i think it was supposed to be called ArenaBattle bu
 
 			if (round > 0) { // rounds that are not the very first one
 
-				while (Unit1.name == Unit2.name || Unit1.HP < 0 || Unit2.HP < 0) {
-
+				while (Unit1.name == Unit2.name || Unit1.HP < 0 || Unit2.HP < 0 && Unit1.toString() != l1&& Unit1.toString() != l2&& Unit1.toString() != l3&& Unit1.toString() != l4&& Unit1.toString() != l5&& Unit2.toString() != l1&& Unit2.toString() != l2&& Unit2.toString() != l3&& Unit2.toString() != l4&& Unit2.toString() != l5) {
+					
 					Unit1 = fighters[ballotnum.nextInt(fighters.length)];
 					Unit2 = fighters[ballotnum.nextInt(fighters.length)];
 					System.out.println(round);
 				}
-
 			}
 
 			if (round > 0) { /// why would this repeat when running?
@@ -80,7 +84,7 @@ public class AreaBattle { // i think it was supposed to be called ArenaBattle bu
 			// attack while loop
 			while (Unit1.HP > 0 && Unit2.HP > 0) {
 
-				int attackoption = JOptionPane.showOptionDialog(null, "Choose  an  attack", Unit1.name, 0, -1, null,
+				int attackoption = JOptionPane.showOptionDialog(null, "Choose  an  attack", Unit1.name + " " + Unit1.element, 0, -1, null,
 						new String[] { "ATK", "MAG" }, 0);
 				// Unit1's attack options
 				if (attackoption == 0) {
@@ -91,7 +95,7 @@ public class AreaBattle { // i think it was supposed to be called ArenaBattle bu
 					// Unit1.attack(Unit2, true);
 					if (Unit1.Mag > 5) {
 
-						attackoption = JOptionPane.showOptionDialog(null, "Choose  an  attack", Unit1.name, 0, -1, null,
+						attackoption = JOptionPane.showOptionDialog(null, "Choose  an  attack", Unit1.name + " " + Unit1.element, 0, -1, null,
 								new String[] { "HL", "MAG" }, 0);
 						if (attackoption == 0) {
 							Unit1.heal(Unit1, true);
@@ -107,18 +111,41 @@ public class AreaBattle { // i think it was supposed to be called ArenaBattle bu
 				if (Unit2.HP <= 0) {
 					JOptionPane.showMessageDialog(null, Unit1.name + "  won.");
 
-					if (round > 5) {
+					if (round == 0) {
+						l1 = Unit2.toString();
+						System.out.println(l1);
+					}
+					else if (round ==1) {
+						l2 = Unit2.toString();
+						System.out.println(l2);
+					}
+					else if (round ==2) {
+						l3 = Unit2.toString();
+						System.out.println(l3);
+					}
+					else if (round ==3) {
+						l4 = Unit2.toString();
+						System.out.println(l4);
+					}
+					else if (round == 4) {
+						l5 = Unit2.toString();
+						System.out.println(l5);
+					}
+
+					// end game result
+
+					round += 1;
+					if (round >= 5) {
+						System.out.println(Unit1.name);
 						JOptionPane.showMessageDialog(null, Unit1.name + "  won the battle arena.");
 						break;
 					}
-
-					round++;
 					System.out.println(round);
 					break;
 
 				}
 
-				attackoption = JOptionPane.showOptionDialog(null, "Choose  an  attack", Unit2.name, 0, -1, null,
+				attackoption = JOptionPane.showOptionDialog(null, "Choose  an  attack", Unit2.name + " " + Unit2.element, 0, -1, null,
 						new String[] { "ATK", "MAG" }, 0);
 				// Unit2's attack options
 				if (attackoption == 0) {
@@ -130,7 +157,7 @@ public class AreaBattle { // i think it was supposed to be called ArenaBattle bu
 
 					if (Unit2.Mag > 5) {
 
-						attackoption = JOptionPane.showOptionDialog(null, "Choose  an  attack", Unit2.name, 0, -1, null,
+						attackoption = JOptionPane.showOptionDialog(null, "Choose  an  attack", Unit2.name + " " + Unit2.element, 0, -1, null,
 								new String[] { "HL", "MAG" }, 0);
 						if (attackoption == 0) {
 							Unit2.heal(Unit2, true);
@@ -146,23 +173,47 @@ public class AreaBattle { // i think it was supposed to be called ArenaBattle bu
 
 				if (Unit1.HP <= 0) {
 					JOptionPane.showMessageDialog(null, Unit2.name + "  won.");
-
-					if (round > 5) {
+					
+					if (round == 0) {
+						l1 = Unit1.toString();
+						System.out.println(l1);
+					}
+					else if (round ==1) {
+						l2 = Unit1.toString();
+						System.out.println(l2);
+					}
+					else if (round ==2) {
+						l3 = Unit1.toString();
+						System.out.println(l3);
+					}
+					else if (round ==3) {
+						l4 = Unit1.toString();
+						System.out.println(l4);
+					}
+					else if (round == 4) {
+						l5 = Unit1.toString();
+						System.out.println(l5);
+					}
+					
+					
+					round += 1;
+					if (round >= 5) {
+						System.out.println(Unit2.name);
 						JOptionPane.showMessageDialog(null, Unit2.name + "  won the battle arena.");
 						break;
 					}
-					round++;
+
 					System.out.println(round);
 					break;
 
 				}
 
 			} // fight while loop ends here
-			if (round > 5) {
+			if (round >= 5) {
 
 				break;
 			}
-
+			if (round<5) {
 			int escape = JOptionPane.showOptionDialog(null, "Do  you  want  to  continue  in  the  battle  arena?",
 					"arena", 0, 1, null, new String[] { "Yes", "No" }, 0);
 			if (escape == 1) {
@@ -172,11 +223,15 @@ public class AreaBattle { // i think it was supposed to be called ArenaBattle bu
 						"You  look  up  and  see  a  bird  pass  by.  You  realize  you  are  free  from  eternal  hell.");
 				break;
 			}
+			}
 			// round++; // increasing round to at least 1
 			System.out.println(round);
-			//thing to do next time
-			// add a joption when unit misses their attack
-			// it would still get bugged (not switching people out)
+			// thing to do next time
+			// add a joption when unit misses their attack--- i added print for attacks and damage
+			// it would still get bugged (not switching people out) ---fix this?
+				//suspiciously happens when fraser is involved (ex/ Fraser V fred or fraser v Child)
+			//color? maybe if i am motivated enough
+			
 
 		} ////////// *****************************************************************************************************************************************
 

@@ -106,6 +106,7 @@ public class Unit extends GameObject {
 							System.out.println(damagetaken);
 						}
 						unit.HP = (int) (unit.HP - damagetaken);
+						System.out.println(damagetaken);
 						// name is our unit, unit is other
 					} else if (isMagic == false) {
 						Double damagetaken = Atk * getAffinityModifier(unit.element) - unit.Def;
@@ -113,6 +114,7 @@ public class Unit extends GameObject {
 							damagetaken = 0.0;
 						}
 						unit.HP = (int) (unit.HP - damagetaken);
+						System.out.println(damagetaken);
 					}
 					System.out.println(unit.HP);
 					JOptionPane.showMessageDialog(null, unit.name + "'s health is at " + unit.HP); // here it announces
