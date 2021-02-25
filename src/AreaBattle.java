@@ -69,11 +69,7 @@ public class AreaBattle { // i think it was supposed to be called ArenaBattle bu
 
 			if (round > 0) { // rounds that are not the very first one
 
-				while (Unit1.name == Unit2.name || Unit1.HP < 0
-						|| Unit2.HP < 0 && Unit1.toString() != l1 && Unit1.toString() != l2 && Unit1.toString() != l3
-								&& Unit1.toString() != l4 && Unit1.toString() != l5 && Unit2.toString() != l1
-								&& Unit2.toString() != l2 && Unit2.toString() != l3 && Unit2.toString() != l4
-								&& Unit2.toString() != l5) {
+				while (Unit1.name == Unit2.name || Unit1.HP <= 0 || Unit2.HP <= 0) {
 
 					Unit1 = fighters[ballotnum.nextInt(fighters.length)];
 					Unit2 = fighters[ballotnum.nextInt(fighters.length)];
@@ -227,17 +223,9 @@ public class AreaBattle { // i think it was supposed to be called ArenaBattle bu
 					break;
 				}
 			}
-			// round++; // increasing round to at least 1
-			System.out.println(round);
-			// thing to do next time
-			// add a joption when unit misses their attack--- i added print for attacks and
-			// damage
-			// it would still get bugged (not switching people out) ---fix this?
-			// suspiciously happens when fraser is involved (ex/ Fraser V fred or fraser v
-			// Child)
-			// color? maybe if i am motivated enough
 			
-			// bug still exists
+			System.out.println(round);
+			
 
 		} ////////// *****************************************************************************************************************************************
 
